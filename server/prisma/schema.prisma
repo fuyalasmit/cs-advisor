@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Teacher {
+  id       Int       @id @default(autoincrement())
+  name     String
+  email    String    @unique
+  password String
+  students Student[]
+}
+
+model Student {
+  id               Int               @id @default(autoincrement())
+  name             String
+  stream           String
+  teacherId        Int
+  currentGpa       String
+  teacher          Teacher           @relation(fields: [teacherId], references: [id], onDelete: Restrict)
+  completedCourses CompletedCourse[]
+}
+
+model Course {
+  courseNo         String            @id @unique
+  title            String
+  creditHour       Int
+  year             String
+  semester         String
+  minGrade         String?
+  category         String? // core, gen ed, conc.
+  prerequisites    Prerequisite[]    @relation("courseMain")
+  asPrerequisite   Prerequisite[]    @relation("coursePreReq")
+  completedCourses CompletedCourse[]
+}
+
+model Prerequisite {
+  id             Int     @id @default(autoincrement())
+  courseId       String
+  preReqCourseId String?
+  minGrade       String?
+  operator       String? // and or
+  extra          String?
+  course         Course  @relation("courseMain", fields: [courseId], references: [courseNo])
+  preReqCourse   Course? @relation("coursePreReq", fields: [preReqCourseId], references: [courseNo])
+}
+
+model CompletedCourse {
+  id        Int     @id @default(autoincrement())
+  studentId Int
+  courseId  String
+  grade     String
+  student   Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  course    Course  @relation(fields: [courseId], references: [courseNo])
+}
