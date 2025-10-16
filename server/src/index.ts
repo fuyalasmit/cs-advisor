@@ -3,18 +3,32 @@ import prisma from "./lib/db.js";
 import jwt from "jsonwebtoken";
 import { z } from "zod";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+
+dotenv.config();
+const JWT_SECRET = process.env.JWT_SECRET;
+const FE_URL = process.env.FE_URL;
 
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: FE_URL,
+    credentials: true,
+  })
+);
 
-app.get("/health", (req, res) => {
+app.get("/api/v1/health", (req, res) => {
   res.json({
     message: "health check passed.",
   });
 });
 
-app.post("/signup", async (req, res) => {
+app.post("/api/v1/signup", async (req, res) => {
   const requiredBody = z.object({
     email: z.email(),
     password: z
@@ -39,6 +53,18 @@ app.post("/signup", async (req, res) => {
 
   const { email, password, name } = parsedData.data;
 
+  const userExists = await prisma.teacher.findFirst({
+    where: {
+      email: email,
+    },
+  });
+
+  if (userExists) {
+    return res.status(403).json({
+      message: "Email already exists, try signing in.",
+    });
+  }
+
   try {
     const hashedPassword = await bcrypt.hash(password, 5);
 
@@ -52,11 +78,74 @@ app.post("/signup", async (req, res) => {
 
     res.status(200).json({
       message: "You're signed up.",
-      hashedPassword: hashedPassword,
+      // hashedPassword: hashedPassword,
     });
   } catch (error) {
     res.status(500).json({
       message: "Internal server error",
+    });
+  }
+});
+
+app.post("/api/v1/signin", async (req, res) => {
+  const requiredBody = z.object({
+    email: z.email(),
+    password: z.string().min(1),
+  });
+
+  const parsedData = requiredBody.safeParse(req.body);
+  if (!parsedData.success) {
+    return res.status(400).json({
+      message: "Invalid credentials format.",
+    });
+  }
+
+  const { email, password } = parsedData.data;
+
+  const user = await prisma.teacher.findFirst({
+    where: {
+      email: email,
+    },
+  });
+
+  if (!user) {
+    return res.status(404).json({
+      message: "Invalid Credentials",
+    });
+  }
+
+  const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+  if (!JWT_SECRET) {
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+
+  if (isPasswordMatch) {
+    const token = jwt.sign(
+      {
+        id: user.id,
+      },
+      JWT_SECRET,
+      {
+        expiresIn: "3d",
+      }
+    );
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    });
+
+    res.status(200).json({
+      message: "User signed in",
+      token,
+    });
+  } else {
+    res.status(403).json({
+      message: "Invalid Credentials",
     });
   }
 });
