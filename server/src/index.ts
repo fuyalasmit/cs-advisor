@@ -10,6 +10,7 @@ import cors from "cors";
 dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 const FE_URL = process.env.FE_URL;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -135,6 +136,7 @@ app.post("/api/v1/signin", async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
+      maxAge: 3 * 24 * 60 * 60 * 1000,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
     });
@@ -150,4 +152,19 @@ app.post("/api/v1/signin", async (req, res) => {
   }
 });
 
-app.listen(3000);
+app.post("/api/v1/signout", (req, res) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+  });
+
+  res.status(200).json({
+    message: "User signed out",
+  });
+});
+
+app.listen(PORT, ()=>{
+  console.log("Server listening on port", PORT)
+  
+});
