@@ -1,0 +1,20 @@
+[
+    {
+        "courseNo": "ORI 101",
+        "title": "First Year Experience",
+        "creditHour": "1",
+        "year": "freshman",
+        "semester": "first",
+        "minGrade": null,
+        "category": "core"
+    }, 
+    {
+        "courseNo": "ENG 101",
+        "title": "Composition I",
+        "creditHour": "3",
+        "year": "freshman",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "core"
+    }
+]

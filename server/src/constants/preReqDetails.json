@@ -1,0 +1,24 @@
+[
+    {
+        "courseId": "CS 109",
+        "preReqCourseId": "CS 102",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 314",
+        "preReqCourseId": "CS 109",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 314",
+        "preReqCourseId": "CS 206",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": ""
+    }
+]
+
