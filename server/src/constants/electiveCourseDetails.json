@@ -1,0 +1,170 @@
+[
+        {
+        "courseNo": "CS 303",
+        "title": "Assembly Language",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 304",
+        "title": "Intro to Web Programming",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 306",
+        "title": "Intro Java Programming II",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 309",
+        "title": "Computer Graphics",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 311",
+        "title": "Intro to Simulation",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 315",
+        "title": "Intro to Game Programming",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 320",
+        "title": "Intro to Multimedia Authoring",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 321",
+        "title": "Principles of Information Security",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 328",
+        "title": "Object Oriented Design with UML",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 330",
+        "title": "Computers in Society",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 386",
+        "title": "Cryptography",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 389",
+        "title": "Programming in Robotics Systems",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 408",
+        "title": "Wireless Computing",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 409",
+        "title": "Intro to Digital Image Processing",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 414",
+        "title": "Forensic Computing",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 421",
+        "title": "Computer Security",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 430",
+        "title": "Machine Learning",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 435",
+        "title": "Intro to Bioinformatics",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 440",
+        "title": "Programming Languages",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 450",
+        "title": "Artificial Intelligence",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 483",
+        "title": "Compilers",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 484",
+        "title": "Internship",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 485",
+        "title": "Intro to Data Comm. & Networks",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CS 490",
+        "title": "High Performance Computing",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "elective"
+    }
+]

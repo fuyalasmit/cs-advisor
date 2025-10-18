@@ -7,6 +7,98 @@
         "extra": ""
     },
     {
+        "courseId": "CS 203",
+        "preReqCourseId": "CS 102",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    
+    {
+        "courseId": "CS 206",
+        "preReqCourseId": "CS 102",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 209",
+        "preReqCourseId": "CS 203",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 215",
+        "preReqCourseId": "CS 109",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 303",
+        "preReqCourseId": "CS 109",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 303",
+        "preReqCourseId": "CS 203",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 304",
+        "preReqCourseId": null,
+        "minGrade": null,
+        "operator": null,
+        "extra": "junior standing"
+    },
+    {
+        "courseId": "CS 305",
+        "preReqCourseId": "MTH 126",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 305",
+        "preReqCourseId": "CS 109",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 306",
+        "preReqCourseId": "CS 206",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 309",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 309",
+        "preReqCourseId": "MTH 237",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 311",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
         "courseId": "CS 314",
         "preReqCourseId": "CS 109",
         "minGrade": null,
@@ -17,8 +109,308 @@
         "courseId": "CS 314",
         "preReqCourseId": "CS 206",
         "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 315",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 320",
+        "preReqCourseId": null,
+        "minGrade": null,
+        "operator": null,
+        "extra": "junior standing"
+    },
+    {
+        "courseId": "CS 321",
+        "preReqCourseId": "CS 104",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 328",
+        "preReqCourseId": "CS 109",
+        "minGrade": null,
+        "operator": "OR",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 328",
+        "preReqCourseId": "CS 206",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 330",
+        "preReqCourseId": "CS 104",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 381",
+        "preReqCourseId": "CS 209",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 384",
+        "preReqCourseId": "CS 209",
+        "minGrade": null,
         "operator": "AND",
+        "extra": "junior standing"
+    },
+    {
+        "courseId": "CS 384",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": null,
+        "extra": "junior standing"
+    },
+    {
+        "courseId": "CS 386",
+        "preReqCourseId": "CS 203",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 386",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 389",
+        "preReqCourseId": "CS 109",
+        "minGrade": "C",
+        "operator": "OR",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 389",
+        "preReqCourseId": "CS 206",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 401",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": "senior standing"
+    },
+    {
+        "courseId": "CS 401",
+        "preReqCourseId": "CS 314",
+        "minGrade": null,
+        "operator": null,
+        "extra": "senior standing"
+    },
+    {
+        "courseId": "CS 403",
+        "preReqCourseId": "CS 401",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 405",
+        "preReqCourseId": "CS 314",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 405",
+        "preReqCourseId": "CS 384",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 408",
+        "preReqCourseId": "CS 384",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 409",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": null,
+        "extra": "senior standing"
+    },
+    {
+        "courseId": "CS 410",
+        "preReqCourseId": "CS 314",
+        "minGrade": "C",
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 410",
+        "preReqCourseId": "CS 381",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 412",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 413",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": null,
+        "extra": "senior standing"
+    },
+    {
+        "courseId": "CS 414",
+        "preReqCourseId": "CS 384",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 421",
+        "preReqCourseId": "CS 384",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 425",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 425",
+        "preReqCourseId": "MTH 126",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 430",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 430",
+        "preReqCourseId": "MTH 237",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 435",
+        "preReqCourseId": null,
+        "minGrade": null,
+        "operator": "OR",
+        "extra": "senior standing"
+    },
+    {
+        "courseId": "CS 435",
+        "preReqCourseId": null,
+        "minGrade": null,
+        "operator": null,
+        "extra": "instructor consent"
+    },
+    {
+        "courseId": "CS 440",
+        "preReqCourseId": "CS 314",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 450",
+        "preReqCourseId": "CS 215",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 483",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": null,
+        "extra": "senior standing"
+    },
+    {
+        "courseId": "CS 484",
+        "preReqCourseId": "CS 314",
+        "minGrade": "C",
+        "operator": "OR",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 484",
+        "preReqCourseId": null,
+        "minGrade": null,
+        "operator": null,
+        "extra": "instructor consent"
+    },
+    {
+        "courseId": "CS 485",
+        "preReqCourseId": "CS 381",
+        "minGrade": "C",
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 486",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": "OR",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 486",
+        "preReqCourseId": "CS 485",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 488",
+        "preReqCourseId": "CS 215",
+        "minGrade": null,
+        "operator": null,
+        "extra": ""
+    },
+    {
+        "courseId": "CS 490",
+        "preReqCourseId": "CS 215",
+        "minGrade": "C",
+        "operator": "AND",
+        "extra": ""
+    },
+    {
+        "courseId": "CS 490",
+        "preReqCourseId": "CS 381",
+        "minGrade": "C",
+        "operator": null,
         "extra": ""
     }
 ]
-

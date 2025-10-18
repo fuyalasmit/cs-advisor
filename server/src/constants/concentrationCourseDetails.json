@@ -1,0 +1,52 @@
+[
+        {
+        "courseNo": "CS 381",
+        "title": "Computer Organization",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CS 384",
+        "title": "Operating Systems",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CS 488",
+        "title": "Database Systems",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CS 3xx",
+        "title": "General Computer Science Elective",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CS 3xx",
+        "title": "General Computer Science Elective",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CS 4xx",
+        "title": "General Computer Science Elective",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CS 3xx",
+        "title": "General Computer Science Elective",
+        "creditHour": 3,
+        "minGrade": "C",
+        "category": "concentration"
+    }
+
+]

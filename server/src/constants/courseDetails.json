@@ -2,19 +2,370 @@
     {
         "courseNo": "ORI 101",
         "title": "First Year Experience",
-        "creditHour": "1",
+        "creditHour": 1,
         "year": "freshman",
         "semester": "first",
         "minGrade": null,
-        "category": "core"
-    }, 
+        "category": "major"
+    },
     {
         "courseNo": "ENG 101",
         "title": "Composition I",
-        "creditHour": "3",
+        "creditHour": 3,
         "year": "freshman",
         "semester": "first",
         "minGrade": "C",
-        "category": "core"
+        "category": "major"
+    },
+    {
+        "courseNo": "MTH 125",
+        "title": "Calculus I",
+        "creditHour": 4,
+        "year": "freshman",
+        "semester": "first",
+        "minGrade": null,
+        "category": "major"
+    },
+    {
+        "courseNo": "HED 101",
+        "title": "Personal & Community Health",
+        "creditHour": 2,
+        "year": "freshman",
+        "semester": "first",
+        "minGrade": null,
+        "category": "genEd"
+    },
+    {
+        "courseNo": "CS 104",
+        "title": "Intro to Computers & Ethics",
+        "creditHour": 3,
+        "year": "freshman",
+        "semester": "first",
+        "minGrade": null,
+        "category": "major"
+    },
+    {
+        "courseNo": "ORI 102",
+        "title": "First Year Experience",
+        "creditHour": 1,
+        "year": "freshman",
+        "semester": "second",
+        "minGrade": null,
+        "category": "major"
+    },
+    {
+        "courseNo": "ENG 102",
+        "title": "Composition II",
+        "creditHour": 3,
+        "year": "freshman",
+        "semester": "second",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "ART 101",
+        "title": "Art Appreciation",
+        "creditHour": 3,
+        "year": "freshman",
+        "semester": "second",
+        "minGrade": null,
+        "category": "genEd"
+    },
+    {
+        "courseNo": "HIS 101",
+        "title": "World History I",
+        "creditHour": 3,
+        "year": "freshman",
+        "semester": "second",
+        "minGrade": null,
+        "category": "genEd"
+    },
+    {
+        "courseNo": "MTH 126",
+        "title": "Calculus II",
+        "creditHour": 4,
+        "year": "freshman",
+        "semester": "second",
+        "minGrade": null,
+        "category": "major"
+    },
+    {
+        "courseNo": "CS 102",
+        "title": "Intro to Programming I",
+        "creditHour": 3,
+        "year": "freshman",
+        "semester": "second",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "ENG 201",
+        "title": "Survey of English Literature I",
+        "creditHour": 3,
+        "year": "sophomore",
+        "semester": "first",
+        "minGrade": null,
+        "category": "genEd"
+    },
+    {
+        "courseNo": "PHY 213",
+        "title": "General Physics with Calculus I",
+        "creditHour": 4,
+        "year": "sophomore",
+        "semester": "first",
+        "minGrade": null,
+        "category": "major"
+    },
+    {
+        "courseNo": "HIS 102",
+        "title": "World History II",
+        "creditHour": 3,
+        "year": "sophomore",
+        "semester": "first",
+        "minGrade": null,
+        "category": "genEd"
+    },
+    {
+        "courseNo": "CS 109",
+        "title": "Intro to Programming II",
+        "creditHour": 3,
+        "year": "sophomore",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CS 203",
+        "title": "Discrete Structures",
+        "creditHour": 3,
+        "year": "sophomore",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "ENG 202",
+        "title": "Survey of English Literature II",
+        "creditHour": 3,
+        "year": "sophomore",
+        "semester": "second",
+        "minGrade": null,
+        "category": "genEd"
+    },
+    {
+        "courseNo": "PHY 214",
+        "title": "General Physics with Calculus II",
+        "creditHour": 4,
+        "year": "sophomore",
+        "semester": "second",
+        "minGrade": null,
+        "category": "major"
+    },
+    {
+        "courseNo": "ECO 230",
+        "title": "Principles of Microeconomics",
+        "creditHour": 3,
+        "year": "sophomore",
+        "semester": "second",
+        "minGrade": null,
+        "category": "genEd"
+    },
+    {
+        "courseNo": "CS 206",
+        "title": "Intro Java Programming I",
+        "creditHour": 3,
+        "year": "sophomore",
+        "semester": "second",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CS 209",
+        "title": "Intro to Digital Logic Design",
+        "creditHour": 3,
+        "year": "sophomore",
+        "semester": "second",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CS 215",
+        "title": "Data Structures",
+        "creditHour": 3,
+        "year": "sophomore",
+        "semester": "second",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "MTH 237",
+        "title": "Linear Algebra",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CS 314",
+        "title": "Advanced Programming",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CSE",
+        "title": "3xx-4xx Elective",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "elective"
+    },
+    {
+        "courseNo": "CSC",
+        "title": "Concentration Course",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CSC",
+        "title": "Concentration Course",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "PHL 201",
+        "title": "Introduction to Philosophy",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "second",
+        "minGrade": null,
+        "category": "genEd"
+    },
+    {
+        "courseNo": "CSC",
+        "title": "Concentration Course",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "second",
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CSC",
+        "title": "Concentration Course",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "second",
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "SOC 201",
+        "title": "Introduction to Sociology",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "second",
+        "minGrade": null,
+        "category": "genEd"
+    },
+    {
+        "courseNo": "",
+        "title": "Free Elective - Any Major Elective Course",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "second",
+        "minGrade": null,
+        "category": "elective"
+    },
+    {
+        "courseNo": "MTH 453",
+        "title": "Probability & Statistics",
+        "creditHour": 3,
+        "year": "senior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CS 401",
+        "title": "Software Engineering",
+        "creditHour": 3,
+        "year": "senior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CS 425",
+        "title": "Theory of Algorithms",
+        "creditHour": 3,
+        "year": "senior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CSC",
+        "title": "Concentration Course",
+        "creditHour": 3,
+        "year": "senior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CSC",
+        "title": "Concentration Course",
+        "creditHour": 3,
+        "year": "senior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "CS 403",
+        "title": "Senior Problems",
+        "creditHour": 3,
+        "year": "senior",
+        "semester": "second",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CS 405",
+        "title": "Linux w/ Appl Programming",
+        "creditHour": 3,
+        "year": "senior",
+        "semester": "second",
+        "minGrade": "C",
+        "category": "major"
+    },
+    {
+        "courseNo": "CSC",
+        "title": "Concentration Course",
+        "creditHour": 3,
+        "year": "senior",
+        "semester": "first",
+        "minGrade": "C",
+        "category": "concentration"
+    },
+    {
+        "courseNo": "",
+        "title": "Free Elective - Any Major Elective Course",
+        "creditHour": 3,
+        "year": "junior",
+        "semester": "second",
+        "minGrade": null,
+        "category": "elective"
     }
 ]
