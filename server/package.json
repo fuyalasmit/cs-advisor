@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc -b && node ./dist/index.js"
+    "dev": "tsc -b && node ./dist/index.js",
+    "seed": "tsc -b && node ./dist/prisma/seed.js"
   },
   "prisma": {
-    "seed": "tsc && node ./dist/prisma/seed.js"
+    "seed": "npm run seed"
   },
   "type": "module",
   "keywords": [],
