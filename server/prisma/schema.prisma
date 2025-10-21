@@ -24,9 +24,13 @@ model Teacher {
 model Student {
   id               Int               @id @default(autoincrement())
   name             String
+  email            String            @unique
   stream           String
+  currentYear      String
+  currentSem       String
+  currentGpa       Float?
+  concentration    String            @default("GCS")
   teacherId        Int
-  currentGpa       Float
   teacher          Teacher           @relation(fields: [teacherId], references: [id], onDelete: Restrict)
   completedCourses CompletedCourse[]
 }
@@ -35,13 +39,23 @@ model Course {
   courseNo         String            @id @unique
   title            String
   creditHour       Int
-  year             String
-  semester         String
   minGrade         String?
-  category         String? // core, gen ed, conc.
+  category         String // "major", "genEd", "elective", "concentration"
   prerequisites    Prerequisite[]    @relation("courseMain")
   asPrerequisite   Prerequisite[]    @relation("coursePreReq")
   completedCourses CompletedCourse[]
+  curriculumSlots  CurriculumSlot[]
+}
+
+model CurriculumSlot {
+  id         Int     @id @default(autoincrement())
+  year       String // "freshman", "sophomore", "junior", "senior"
+  semester   String // "first", "second"
+  courseId   String? // NULL for placeholders (conc, electives)
+  slotType   String // "fixed", "concentration", "elective", "free"
+  creditHour Int
+  minGrade   String?
+  course     Course? @relation(fields: [courseId], references: [courseNo])
 }
 
 model Prerequisite {
@@ -62,4 +76,6 @@ model CompletedCourse {
   grade     String
   student   Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
   course    Course  @relation(fields: [courseId], references: [courseNo])
+
+  @@unique([studentId, courseId])
 }
