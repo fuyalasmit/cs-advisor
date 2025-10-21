@@ -1,0 +1,235 @@
+[
+  {
+    "courseNo": "ORI 101",
+    "title": "First Year Experience",
+    "creditHour": 1,
+    "minGrade": null,
+    "category": "major"
+  },
+  {
+    "courseNo": "ORI 102",
+    "title": "First Year Experience",
+    "creditHour": 1,
+    "minGrade": null,
+    "category": "major"
+  },
+  {
+    "courseNo": "ENG 101",
+    "title": "Composition I",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "ENG 102",
+    "title": "Composition II",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "MTH 125",
+    "title": "Calculus I",
+    "creditHour": 4,
+    "minGrade": null,
+    "category": "major"
+  },
+  {
+    "courseNo": "MTH 126",
+    "title": "Calculus II",
+    "creditHour": 4,
+    "minGrade": null,
+    "category": "major"
+  },
+  {
+    "courseNo": "MTH 237",
+    "title": "Linear Algebra",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "MTH 453",
+    "title": "Probability & Statistics",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "PHY 213",
+    "title": "General Physics with Calculus I",
+    "creditHour": 4,
+    "minGrade": null,
+    "category": "major"
+  },
+  {
+    "courseNo": "PHY 214",
+    "title": "General Physics with Calculus II",
+    "creditHour": 4,
+    "minGrade": null,
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 104",
+    "title": "Intro to Computers & Ethics",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 102",
+    "title": "Intro to Programming I",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 109",
+    "title": "Intro to Programming II",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 203",
+    "title": "Discrete Structures",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 206",
+    "title": "Intro Java Programming I",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 209",
+    "title": "Intro to Digital Logic Design",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 215",
+    "title": "Data Structures",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 314",
+    "title": "Advanced Programming",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 401",
+    "title": "Software Engineering",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 403",
+    "title": "Senior Problems",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 405",
+    "title": "Linux w/ Appl Programming",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 410",
+    "title": "Seminar",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "CS 425",
+    "title": "Theory of Algorithms",
+    "creditHour": 3,
+    "minGrade": "C",
+    "category": "major"
+  },
+  {
+    "courseNo": "HED 101",
+    "title": "Personal & Community Health",
+    "creditHour": 2,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "PED/MSC/HED"
+  },
+  {
+    "courseNo": "ART 101",
+    "title": "Art Appreciation",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Fine Arts"
+  },
+  {
+    "courseNo": "HIS 101",
+    "title": "World History I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "HIS 102",
+    "title": "World History II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "History"
+  },
+  {
+    "courseNo": "ENG 201",
+    "title": "Survey of English Literature I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Lit Sequence"
+  },
+  {
+    "courseNo": "ENG 202",
+    "title": "Survey of English Literature II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Lit Sequence"
+  },
+  {
+    "courseNo": "ECO 230",
+    "title": "Principles of Microeconomics",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Economics"
+  },
+  {
+    "courseNo": "PHL 201",
+    "title": "Introduction to Philosophy",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities/Fine Arts"
+  },
+  {
+    "courseNo": "SOC 201",
+    "title": "Introduction to Sociology",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Social/Behavioral Science"
+  }
+]

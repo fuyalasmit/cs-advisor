@@ -1,0 +1,366 @@
+[
+  {
+    "year": "freshman",
+    "semester": "first",
+    "courseId": "ORI 101",
+    "slotType": "fixed",
+    "creditHour": 1,
+    "minGrade": null
+  },
+  {
+    "year": "freshman",
+    "semester": "first",
+    "courseId": "ENG 101",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "freshman",
+    "semester": "first",
+    "courseId": "MTH 125",
+    "slotType": "fixed",
+    "creditHour": 4,
+    "minGrade": null
+  },
+  {
+    "year": "freshman",
+    "semester": "first",
+    "courseId": null,
+    "slotType": "genEd",
+    "genEdCategory": "PED/MSC/HED",
+    "creditHour": 2,
+    "minGrade": null,
+    "note": "Choose from GenEd listing - PED/MSC/HED courses"
+  },
+  {
+    "year": "freshman",
+    "semester": "first",
+    "courseId": "CS 104",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": null
+  },
+  {
+    "year": "freshman",
+    "semester": "second",
+    "courseId": "ORI 102",
+    "slotType": "fixed",
+    "creditHour": 1,
+    "minGrade": null
+  },
+  {
+    "year": "freshman",
+    "semester": "second",
+    "courseId": "ENG 102",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "freshman",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "genEd",
+    "genEdCategory": "Fine Arts",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Choose from GenEd listing - Fine Arts"
+  },
+  {
+    "year": "freshman",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "genEd",
+    "genEdCategory": "Humanities",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Choose from GenEd listing - Humanities"
+  },
+  {
+    "year": "freshman",
+    "semester": "second",
+    "courseId": "MTH 126",
+    "slotType": "fixed",
+    "creditHour": 4,
+    "minGrade": null
+  },
+  {
+    "year": "freshman",
+    "semester": "second",
+    "courseId": "CS 102",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "sophomore",
+    "semester": "first",
+    "courseId": null,
+    "slotType": "genEd",
+    "genEdCategory": "Lit Sequence",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Choose from GenEd listing - Literature Sequence"
+  },
+  {
+    "year": "sophomore",
+    "semester": "first",
+    "courseId": "PHY 213",
+    "slotType": "fixed",
+    "creditHour": 4,
+    "minGrade": null
+  },
+  {
+    "year": "sophomore",
+    "semester": "first",
+    "courseId": null,
+    "slotType": "genEd",
+    "genEdCategory": "History",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Choose from GenEd listing - History"
+  },
+  {
+    "year": "sophomore",
+    "semester": "first",
+    "courseId": "CS 109",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "sophomore",
+    "semester": "first",
+    "courseId": "CS 203",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "sophomore",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "genEd",
+    "genEdCategory": "Lit Sequence",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Choose from GenEd listing - Literature Sequence"
+  },
+  {
+    "year": "sophomore",
+    "semester": "second",
+    "courseId": "PHY 214",
+    "slotType": "fixed",
+    "creditHour": 4,
+    "minGrade": null
+  },
+  {
+    "year": "sophomore",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "genEd",
+    "genEdCategory": "Economics",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Choose from GenEd listing - Economics"
+  },
+  {
+    "year": "sophomore",
+    "semester": "second",
+    "courseId": "CS 206",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "sophomore",
+    "semester": "second",
+    "courseId": "CS 209",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "sophomore",
+    "semester": "second",
+    "courseId": "CS 215",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "junior",
+    "semester": "first",
+    "courseId": "MTH 237",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "junior",
+    "semester": "first",
+    "courseId": "CS 314",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "junior",
+    "semester": "first",
+    "courseId": null,
+    "slotType": "elective",
+    "creditHour": 3,
+    "minGrade": "C",
+    "note": "3xx-4xx CS Elective"
+  },
+  {
+    "year": "junior",
+    "semester": "first",
+    "courseId": null,
+    "slotType": "concentration",
+    "creditHour": 3,
+    "minGrade": "C",
+    "note": "Concentration Course"
+  },
+  {
+    "year": "junior",
+    "semester": "first",
+    "courseId": null,
+    "slotType": "concentration",
+    "creditHour": 3,
+    "minGrade": "C",
+    "note": "Concentration Course"
+  },
+  {
+    "year": "junior",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "genEd",
+    "genEdCategory": "Humanities/Fine Arts",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Choose from GenEd listing - Humanities or Fine Arts"
+  },
+  {
+    "year": "junior",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "concentration",
+    "creditHour": 3,
+    "minGrade": "C",
+    "note": "Concentration Course"
+  },
+  {
+    "year": "junior",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "concentration",
+    "creditHour": 3,
+    "minGrade": "C",
+    "note": "Concentration Course"
+  },
+  {
+    "year": "junior",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "genEd",
+    "genEdCategory": "Social/Behavioral Science",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Choose from GenEd listing - Social or Behavioral Science"
+  },
+  {
+    "year": "junior",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "free",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Free Elective - Any course"
+  },
+  {
+    "year": "senior",
+    "semester": "first",
+    "courseId": "MTH 453",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "senior",
+    "semester": "first",
+    "courseId": "CS 401",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "senior",
+    "semester": "first",
+    "courseId": "CS 425",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "senior",
+    "semester": "first",
+    "courseId": null,
+    "slotType": "concentration",
+    "creditHour": 3,
+    "minGrade": "C",
+    "note": "Concentration Course"
+  },
+  {
+    "year": "senior",
+    "semester": "first",
+    "courseId": null,
+    "slotType": "concentration",
+    "creditHour": 3,
+    "minGrade": "C",
+    "note": "Concentration Course"
+  },
+  {
+    "year": "senior",
+    "semester": "second",
+    "courseId": "CS 403",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "senior",
+    "semester": "second",
+    "courseId": "CS 405",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  },
+  {
+    "year": "senior",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "concentration",
+    "creditHour": 3,
+    "minGrade": "C",
+    "note": "Concentration Course"
+  },
+  {
+    "year": "senior",
+    "semester": "second",
+    "courseId": null,
+    "slotType": "free",
+    "creditHour": 3,
+    "minGrade": null,
+    "note": "Free Elective - Any course"
+  },
+  {
+    "year": "senior",
+    "semester": "second",
+    "courseId": "CS 410",
+    "slotType": "fixed",
+    "creditHour": 3,
+    "minGrade": "C"
+  }
+]

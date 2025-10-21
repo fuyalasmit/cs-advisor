@@ -1,0 +1,42 @@
+{
+  "PED/MSC/HED": {
+    "description": "Physical Education / Military Science / Health Education",
+    "courses": ["HED 101"],
+    "note": "Add more PED, MSC, or HED courses here in the future"
+  },
+  "Fine Arts": {
+    "description": "Fine Arts courses",
+    "courses": ["ART 101"],
+    "note": "Add more Fine Arts courses (ART, MUS, etc.) here in the future"
+  },
+  "Humanities": {
+    "description": "Humanities courses",
+    "courses": ["HIS 101"],
+    "note": "Add more Humanities courses (HIS, PHL, REL, etc.) here in the future"
+  },
+  "Lit Sequence": {
+    "description": "Literature Sequence courses",
+    "courses": ["ENG 201", "ENG 202"],
+    "note": "Add more Literature courses here in the future"
+  },
+  "History": {
+    "description": "History courses",
+    "courses": ["HIS 102"],
+    "note": "Add more History courses here in the future"
+  },
+  "Economics": {
+    "description": "Economics courses",
+    "courses": ["ECO 230"],
+    "note": "Add more Economics courses here in the future"
+  },
+  "Humanities/Fine Arts": {
+    "description": "Humanities or Fine Arts (combined category)",
+    "courses": ["PHL 201"],
+    "note": "Add more Humanities or Fine Arts courses here in the future"
+  },
+  "Social/Behavioral Science": {
+    "description": "Social or Behavioral Science courses",
+    "courses": ["SOC 201"],
+    "note": "Add more Social/Behavioral Science courses (SOC, PSY, POL, etc.) here in the future"
+  }
+}

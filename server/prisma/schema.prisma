@@ -41,6 +41,7 @@ model Course {
   creditHour       Int
   minGrade         String?
   category         String // "major", "genEd", "elective", "concentration"
+  genEdCategory    String? // For genEd courses (e.g., "Fine Arts", "History")
   prerequisites    Prerequisite[]    @relation("courseMain")
   asPrerequisite   Prerequisite[]    @relation("coursePreReq")
   completedCourses CompletedCourse[]
@@ -48,14 +49,15 @@ model Course {
 }
 
 model CurriculumSlot {
-  id         Int     @id @default(autoincrement())
-  year       String // "freshman", "sophomore", "junior", "senior"
-  semester   String // "first", "second"
-  courseId   String? // NULL for placeholders (conc, electives)
-  slotType   String // "fixed", "concentration", "elective", "free"
-  creditHour Int
-  minGrade   String?
-  course     Course? @relation(fields: [courseId], references: [courseNo])
+  id            Int     @id @default(autoincrement())
+  year          String // "freshman", "sophomore", "junior", "senior"
+  semester      String // "first", "second"
+  courseId      String? // NULL for placeholders (conc, electives, genEd)
+  slotType      String // "fixed", "concentration", "elective", "genEd", "free"
+  creditHour    Int
+  minGrade      String?
+  genEdCategory String? // For genEd slots (e.g., "Fine Arts", "Humanities")
+  course        Course? @relation(fields: [courseId], references: [courseNo])
 }
 
 model Prerequisite {
