@@ -5,6 +5,7 @@ import cors from "cors";
 
 import authRoute from "../src/routes/authRoutes.js";
 import courseRoute from "../src/routes/courseRoutes.js";
+import studentRoute from "../src/routes/studentRoutes.js";
 
 dotenv.config();
 const FE_URL = process.env.FE_URL;
@@ -29,6 +30,7 @@ app.get("/api/v1/health", (req, res) => {
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/courses", courseRoute);
+app.use("/api/v1/students", studentRoute);
 
 app.listen(PORT, () => {
   console.log("Server listening on port", PORT);
