@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 const Landing: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-light">
       <Navbar />
@@ -15,15 +18,18 @@ const Landing: React.FC = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-              Intelligent course planning for AAMU Computer Science students with automated prerequisite
-              tracking and personalized semester recommendations
+              description here...
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="px-8 py-3 text-base md:text-lg font-medium text-aamu-maroon border-2 border-aamu-maroon rounded-lg hover:bg-black-rose-100 transition-colors w-full sm:w-auto">
+              <button
+                
+                className="px-8 py-3 text-base md:text-lg font-medium text-aamu-maroon border-2 border-aamu-maroon rounded-lg hover:bg-black-rose-100 transition-colors w-full sm:w-auto">
                 How to Use?
               </button>
-              <button className="px-8 py-3 text-base md:text-lg font-medium text-white bg-aamu-maroon rounded-lg hover:bg-aamu-maroon-light transition-colors w-full sm:w-auto flex items-center justify-center gap-2">
+              <button
+                onClick={() => navigate("/courses")}
+                className="px-8 py-3 text-base md:text-lg font-medium text-white bg-aamu-maroon rounded-lg hover:bg-aamu-maroon-light transition-colors w-full sm:w-auto flex items-center justify-center gap-2">
                 Get Started
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
