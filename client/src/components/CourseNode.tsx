@@ -28,7 +28,6 @@ interface CourseNodeProps {
 const CourseNode: React.FC<CourseNodeProps> = ({ data }) => {
   return (
     <div className="relative">
-      {/* Connection handles */}
       <Handle
         type="target"
         position={Position.Top}
@@ -50,7 +49,6 @@ const CourseNode: React.FC<CourseNodeProps> = ({ data }) => {
         }}
       />
 
-      {/* Circle node */}
       <div
         onClick={data.onSelect}
         className={`w-24 h-24 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110 ${

@@ -60,7 +60,6 @@ const Courses: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [allCourses, setAllCourses] = useState<Map<string, CourseDetails>>(new Map());
 
-  // Fetch curriculum data
   useEffect(() => {
     const fetchCurriculum = async () => {
       try {
@@ -83,12 +82,10 @@ const Courses: React.FC = () => {
     fetchCurriculum();
   }, [selectedYear]);
 
-  // Fetch all course details for graph and list view
   useEffect(() => {
     const fetchAllCourseDetails = async () => {
       const coursesMap = new Map<string, CourseDetails>();
 
-      // Get all unique course numbers from curriculum slots
       const courseNumbers = new Set<string>();
       curriculum.forEach((sem) => {
         sem.slots.forEach((slot) => {
@@ -98,7 +95,6 @@ const Courses: React.FC = () => {
         });
       });
 
-      // Fetch details for curriculum courses
       await Promise.all(
         Array.from(courseNumbers).map(async (courseNo) => {
           try {
@@ -111,7 +107,6 @@ const Courses: React.FC = () => {
         })
       );
 
-      // Fetch concentration courses
       try {
         const response = await fetch(`${API_BASE_URL}/courses/concentration`);
         const data = await response.json();
@@ -122,7 +117,6 @@ const Courses: React.FC = () => {
         console.error("Error fetching concentration courses:", error);
       }
 
-      // Fetch elective courses
       try {
         const response = await fetch(`${API_BASE_URL}/courses/electives`);
         const data = await response.json();
@@ -154,7 +148,6 @@ const Courses: React.FC = () => {
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             Course <span className="text-aamu-maroon">Curriculum</span>
@@ -162,10 +155,8 @@ const Courses: React.FC = () => {
           <p className="text-gray-600">any description here.</p>
         </div>
 
-        {/* Controls */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-            {/* Year Filter */}
             <div className="flex items-center gap-3">
               <label className="text-sm font-medium text-gray-700">Year:</label>
               <select
@@ -180,7 +171,6 @@ const Courses: React.FC = () => {
               </select>
             </div>
 
-            {/* View Mode Toggle */}
             <div className="flex items-center gap-2 bg-gray-100 p-1 rounded-lg">
               <button
                 onClick={() => setViewMode("list")}
@@ -200,7 +190,6 @@ const Courses: React.FC = () => {
           </div>
         </div>
 
-        {/* Content */}
         {loading ? (
           <div className="flex items-center justify-center py-20">
             <div className="text-center">
@@ -214,7 +203,6 @@ const Courses: React.FC = () => {
           <ListView curriculum={curriculum} courseDetails={allCourses} />
         )}
 
-        {/* Legend */}
         <div className="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Course Categories</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -241,7 +229,6 @@ const Courses: React.FC = () => {
   );
 };
 
-// List View Component
 const ListView: React.FC<{
   curriculum: SemesterData[];
   courseDetails: Map<string, CourseDetails>;
@@ -257,7 +244,6 @@ const ListView: React.FC<{
     }
   };
 
-  // Get options for placeholder slots
   const getPlaceholderOptions = (slot: CurriculumSlot): CourseDetails[] => {
     const options: CourseDetails[] = [];
 
@@ -349,7 +335,7 @@ const ListView: React.FC<{
                                 <PlaceholderOptionsView slot={slot} options={placeholderOptions} />
                               ) : (
                                 <div className="text-center py-4 text-gray-500">
-                                  No details available for this course
+                                  Details are being loaded for this course
                                 </div>
                               )}
                             </td>
@@ -368,7 +354,6 @@ const ListView: React.FC<{
   );
 };
 
-// Placeholder Options View Component
 const PlaceholderOptionsView: React.FC<{
   slot: CurriculumSlot;
   options: CourseDetails[];
@@ -421,7 +406,6 @@ const PlaceholderOptionsView: React.FC<{
   );
 };
 
-// Course Details View Component
 const CourseDetailsView: React.FC<{ course: CourseDetails }> = ({ course }) => {
   return (
     <div className="space-y-4">

@@ -58,20 +58,19 @@ const nodeTypes = {
   course: CourseNode,
 };
 
-// Category color mapping using AAMU colors
 const getCategoryColor = (category?: string, slotType?: string): string => {
   const type = category || slotType;
   switch (type) {
     case "major":
     case "fixed":
-      return "#651d32"; // AAMU Maroon
+      return "#651d32";
     case "concentration":
-      return "#902444"; // Maroon Light
+      return "#902444";
     case "genEd":
-      return "#dc588a"; // Black Rose 500
+      return "#dc588a";
     case "elective":
     case "free":
-      return "#f1b0cc"; // Black Rose 300
+      return "#f1b0cc";
     default:
       return "#651d32";
   }
@@ -80,12 +79,10 @@ const getCategoryColor = (category?: string, slotType?: string): string => {
 const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
 
-  // Generate nodes and edges from curriculum data
   const { nodes, edges } = useMemo(() => {
     const nodeMap = new Map<string, Node>();
     const edgeList: Edge[] = [];
 
-    // Collect all courses from curriculum
     const allCourses = new Map<string, { slot: CurriculumSlot; semester: SemesterData }>();
     curriculum.forEach((semester) => {
       semester.slots.forEach((slot) => {
@@ -95,21 +92,16 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
       });
     });
 
-    // Build DAG with proper hierarchical layering (Sugiyama-style layout)
-
-    // Step 1: Calculate the longest path from each node (topological ordering)
     const inDegree = new Map<string, number>();
     const outEdges = new Map<string, Set<string>>();
     const inEdges = new Map<string, Set<string>>();
 
-    // Initialize
     allCourses.forEach((_, courseNo) => {
       inDegree.set(courseNo, 0);
       outEdges.set(courseNo, new Set());
       inEdges.set(courseNo, new Set());
     });
 
-    // Build graph structure
     allCourses.forEach((_, courseNo) => {
       const details = courseDetails.get(courseNo);
       if (details?.prerequisites) {
@@ -123,12 +115,10 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
       }
     });
 
-    // Topological sort and layer assignment
     const layers = new Map<number, string[]>();
     const nodeLayer = new Map<string, number>();
     const queue: string[] = [];
 
-    // Start with nodes that have no prerequisites (layer 0)
     inDegree.forEach((degree, courseNo) => {
       if (degree === 0) {
         queue.push(courseNo);
@@ -136,7 +126,6 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
       }
     });
 
-    // Process nodes level by level
     while (queue.length > 0) {
       const current = queue.shift()!;
       const currentLayer = nodeLayer.get(current)!;
@@ -146,13 +135,11 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
       }
       layers.get(currentLayer)!.push(current);
 
-      // Process dependent courses
       outEdges.get(current)!.forEach((dependent) => {
         const newDegree = inDegree.get(dependent)! - 1;
         inDegree.set(dependent, newDegree);
 
         if (newDegree === 0) {
-          // Place in the layer after all its prerequisites
           let maxPrereqLayer = -1;
           inEdges.get(dependent)!.forEach((prereq) => {
             const prereqLayer = nodeLayer.get(prereq);
@@ -166,11 +153,9 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
       });
     }
 
-    // Layout configuration
-    const layerSpacing = 250; // Vertical spacing between layers
-    const nodeSpacing = 200; // Horizontal spacing between nodes
+    const layerSpacing = 250;
+    const nodeSpacing = 200;
 
-    // Position nodes layer by layer
     const layerNumbers = Array.from(layers.keys()).sort((a, b) => a - b);
 
     layerNumbers.forEach((layerNum) => {
@@ -206,7 +191,6 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
       });
     });
 
-    // Create edges ONLY for direct prerequisites (no transitive edges)
     allCourses.forEach((_, courseNo) => {
       const details = courseDetails.get(courseNo);
       if (details?.prerequisites) {
@@ -267,7 +251,6 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
             maskColor="rgba(101, 29, 50, 0.1)"
           />
 
-          {/* Course Details Panel */}
           {selectedCourse && courseDetails.has(selectedCourse) && (
             <Panel position="top-right" className="max-w-sm">
               <CourseDetailsPanel
@@ -277,7 +260,6 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
             </Panel>
           )}
 
-          {/* Instructions Panel */}
           {!selectedCourse && (
             <Panel
               position="bottom-center"
@@ -293,7 +275,6 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
   );
 };
 
-// Course Details Panel Component
 const CourseDetailsPanel: React.FC<{
   course: CourseDetails;
   onClose: () => void;

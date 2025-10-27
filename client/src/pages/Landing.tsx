@@ -18,12 +18,14 @@ const Landing: React.FC = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-              description here...
+              A comprehensive platform designed to streamline academic advising for CS professors and students
+              at AAMU. Track progress, visualize degree requirements, and make informed course
+              recommendations.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
-                
+                onClick={() => navigate("/how-to-use")}
                 className="px-8 py-3 text-base md:text-lg font-medium text-aamu-maroon border-2 border-aamu-maroon rounded-lg hover:bg-black-rose-100 transition-colors w-full sm:w-auto">
                 How to Use?
               </button>

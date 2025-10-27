@@ -8,8 +8,6 @@ import dotenv from "dotenv";
 dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
-
-
 const router = express.Router();
 
 router.post("/signup", async (req, res) => {
@@ -126,6 +124,11 @@ router.post("/signin", async (req, res) => {
 
     res.status(200).json({
       message: "User signed in",
+      teacher: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+      },
     });
   } else {
     res.status(403).json({
@@ -146,5 +149,4 @@ router.post("/signout", (req, res) => {
   });
 });
 
-
-export default router
+export default router;
