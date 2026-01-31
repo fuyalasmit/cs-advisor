@@ -3,9 +3,9 @@ services:
         image: postgres:15
         restart: unless-stopped
         environment:
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: postgrespassword
-            POSTGRES_DB: cs_advisor
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
         volumes:
             - db_data:/var/lib/postgresql/data
         ports:
@@ -15,6 +15,48 @@ services:
             interval: 60s
             timeout: 5s
             retries: 5
+
+    db-migrate:
+        build:
+            context: ./server
+            dockerfile: Dockerfile
+        environment:
+            DATABASE_URL: ${DATABASE_URL}
+        depends_on:
+            db:
+                condition: service_healthy
+        command: sh -c "npx prisma migrate deploy && npm run seed"
+        restart: "no"
+
+    server:
+        build:
+            context: ./server
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"
+        environment:
+            DATABASE_URL: ${DATABASE_URL}
+            JWT_SECRET: ${JWT_SECRET}
+            FE_URL: ${FE_URL}
+            PORT: ${PORT}
+        depends_on:
+            db:
+                condition: service_healthy
+            db-migrate:
+                condition: service_completed_successfully
+        restart: unless-stopped
+
+    client:
+        build:
+            context: ./client
+            dockerfile: Dockerfile
+        ports:
+            - "5173:5173"
+        environment:
+            VITE_API_BASE_URL: ${VITE_API_BASE_URL}
+        depends_on:
+            - server
+        restart: unless-stopped
 
 volumes:
     db_data:

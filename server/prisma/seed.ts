@@ -126,17 +126,24 @@ async function clearDatabase() {
 async function main() {
   console.log("Starting database seed...\n");
 
+  // Check if database is already seeded
+  const courseCount = await prisma.course.count();
+  if (courseCount > 0) {
+    console.log("Database already seeded. Skipping...\n");
+    return;
+  }
+
   await clearDatabase();
   await seedCourses();
   await seedCurriculumSlots();
   await seedPrerequisites();
 
-  const courseCount = await prisma.course.count();
+  const finalCourseCount = await prisma.course.count();
   const slotCount = await prisma.curriculumSlot.count();
   const prereqCount = await prisma.prerequisite.count();
 
   console.log("\nSeeding completed:");
-  console.log(`- ${courseCount} courses`);
+  console.log(`- ${finalCourseCount} courses`);
   console.log(`- ${slotCount} curriculum slots`);
   console.log(`- ${prereqCount} prerequisites\n`);
 }
