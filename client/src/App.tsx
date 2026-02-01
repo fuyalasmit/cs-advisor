@@ -4,6 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Landing from "./pages/Landing";
 import Courses from "./pages/Courses";
 import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 import Students from "./pages/Students";
 import StudentDetail from "./pages/StudentDetail";
 import HowToUse from "./pages/HowToUse";
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/how-to-use" element={<HowToUse />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route
             path="/students"
             element={

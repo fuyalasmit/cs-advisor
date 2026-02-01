@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import Navbar from "../components/Navbar";
 
@@ -81,6 +81,13 @@ const SignIn: React.FC = () => {
               {loading ? "Signing in..." : "Sign In"}
             </button>
           </form>
+
+          <p className="mt-6 text-center text-gray-600">
+            Don't have an account?{" "}
+            <Link to="/signup" className="text-aamu-maroon hover:underline font-medium">
+              Sign Up
+            </Link>
+          </p>
         </div>
       </div>
     </div>
