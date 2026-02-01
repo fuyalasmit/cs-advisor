@@ -203,27 +203,6 @@ const Courses: React.FC = () => {
           <ListView curriculum={curriculum} courseDetails={allCourses} />
         )}
 
-        <div className="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Course Categories</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-[#651d32]"></div>
-              <span className="text-sm text-gray-700">Major Courses</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-[#902444]"></div>
-              <span className="text-sm text-gray-700">Concentration</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-[#dc588a]"></div>
-              <span className="text-sm text-gray-700">General Education</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-[#f1b0cc]"></div>
-              <span className="text-sm text-gray-700">Electives</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
