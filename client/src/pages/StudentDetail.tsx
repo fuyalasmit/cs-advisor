@@ -126,6 +126,8 @@ const StudentDetail: React.FC = () => {
             const response = await fetch(`${API_BASE_URL}/courses`);
             const data = await response.json();
             const courses: AvailableCourse[] = [];
+
+            // Add courses from curriculum (fixed slots only)
             data.curriculum?.forEach(
                 (sem: {
                     slots?: {
@@ -148,6 +150,63 @@ const StudentDetail: React.FC = () => {
                     });
                 },
             );
+
+            // Fetch concentration courses
+            try {
+                const concResponse = await fetch(`${API_BASE_URL}/courses/concentration`);
+                const concData = await concResponse.json();
+                [...concData.requiredConc, ...concData.electiveConc].forEach((course: AvailableCourse) => {
+                    if (!courses.find((c) => c.courseNo === course.courseNo)) {
+                        courses.push(course);
+                    }
+                });
+            } catch (err) {
+                console.error("Failed to fetch concentration courses:", err);
+            }
+
+            // Fetch elective courses
+            try {
+                const elecResponse = await fetch(`${API_BASE_URL}/courses/electives`);
+                const elecData = await elecResponse.json();
+                elecData.electives.forEach((course: AvailableCourse) => {
+                    if (!courses.find((c) => c.courseNo === course.courseNo)) {
+                        courses.push(course);
+                    }
+                });
+            } catch (err) {
+                console.error("Failed to fetch elective courses:", err);
+            }
+
+            // Fetch GenEd courses for all categories
+            const genEdCategories = [
+                "PED/MSC/HED",
+                "Fine Arts",
+                "Humanities",
+                "Lit Sequence",
+                "History",
+                "Economics",
+                "Humanities/Fine Arts",
+                "Social/Behavioral Science",
+            ];
+
+            await Promise.all(
+                genEdCategories.map(async (category) => {
+                    try {
+                        const genEdResponse = await fetch(
+                            `${API_BASE_URL}/courses/gened/${encodeURIComponent(category)}`,
+                        );
+                        const genEdData = await genEdResponse.json();
+                        genEdData.courses.forEach((course: AvailableCourse) => {
+                            if (!courses.find((c) => c.courseNo === course.courseNo)) {
+                                courses.push(course);
+                            }
+                        });
+                    } catch (err) {
+                        console.error(`Failed to fetch GenEd courses for ${category}:`, err);
+                    }
+                }),
+            );
+
             setAvailableCourses(courses.sort((a, b) => a.courseNo.localeCompare(b.courseNo)));
         } catch (err) {
             console.error("Failed to fetch courses:", err);
