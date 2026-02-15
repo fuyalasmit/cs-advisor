@@ -218,11 +218,10 @@ const CourseGraph: React.FC<CourseGraphProps> = ({ curriculum, courseDetails }) 
                             setSelectedNodeId(node.id);
                         }
 
-                        // center on click
+                        // center on click without changing zoom
                         const fg = fgRef.current;
                         if (fg && typeof node.x === "number" && typeof node.y === "number") {
                             fg.centerAt(node.x, node.y, 400);
-                            fg.zoom(1.2, 400);
                         }
                     }}
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
