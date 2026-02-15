@@ -231,5 +231,405 @@
     "minGrade": null,
     "category": "genEd",
     "genEdCategory": "Social/Behavioral Science"
+  },
+  {
+    "courseNo": "PED 102",
+    "title": "Fitness for Life",
+    "creditHour": 1,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "PED/MSC/HED"
+  },
+  {
+    "courseNo": "PED 107",
+    "title": "Gymnastics",
+    "creditHour": 1,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "PED/MSC/HED"
+  },
+  {
+    "courseNo": "PED 111",
+    "title": "Tennis",
+    "creditHour": 1,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "PED/MSC/HED"
+  },
+  {
+    "courseNo": "PED 114",
+    "title": "Aerobics/Weight Training",
+    "creditHour": 1,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "PED/MSC/HED"
+  },
+  {
+    "courseNo": "PED 132",
+    "title": "Beginning Swim/Aquatic Ed",
+    "creditHour": 1,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "PED/MSC/HED"
+  },
+  {
+    "courseNo": "PED 133",
+    "title": "Intermediate Swimming",
+    "creditHour": 1,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "PED/MSC/HED"
+  },
+  {
+    "courseNo": "PED 137",
+    "title": "Golf",
+    "creditHour": 1,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "PED/MSC/HED"
+  },
+  {
+    "courseNo": "MSC 101",
+    "title": "Military Science I",
+    "creditHour": 2,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "PED/MSC/HED"
+  },
+  {
+    "courseNo": "ART 220",
+    "title": "History of Art I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Fine Arts"
+  },
+  {
+    "courseNo": "ART 221",
+    "title": "History of Art II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Fine Arts"
+  },
+  {
+    "courseNo": "MUS 101",
+    "title": "Music Appreciation",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Fine Arts"
+  },
+  {
+    "courseNo": "COMM 101",
+    "title": "Theater Appreciation",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Fine Arts"
+  },
+  {
+    "courseNo": "UPL 102",
+    "title": "Public Art in Cities",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Fine Arts"
+  },
+  {
+    "courseNo": "ENG 203",
+    "title": "World Literature I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Lit Sequence"
+  },
+  {
+    "courseNo": "ENG 203H",
+    "title": "World Literature I Honors",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Lit Sequence"
+  },
+  {
+    "courseNo": "ENG 204",
+    "title": "World Literature II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Lit Sequence"
+  },
+  {
+    "courseNo": "ENG 204H",
+    "title": "World Literature II Honors",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Lit Sequence"
+  },
+  {
+    "courseNo": "ENG 207",
+    "title": "Survey of American Literature I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Lit Sequence"
+  },
+  {
+    "courseNo": "ENG 208",
+    "title": "Survey of American Literature II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Lit Sequence"
+  },
+  {
+    "courseNo": "CHN 101",
+    "title": "Elementary Chinese I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "CHN 102",
+    "title": "Elementary Chinese II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "CHN 201",
+    "title": "Intermediate Chinese I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "CHN 202",
+    "title": "Intermediate Chinese II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "ENG 205",
+    "title": "General Speech",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "ENG 205H",
+    "title": "General Speech Honors",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "FRE 101",
+    "title": "Elementary French I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "FRE 102",
+    "title": "Elementary French II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "FRE 201",
+    "title": "Intermediate French I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "FRE 202",
+    "title": "Intermediate French II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "PHL 203",
+    "title": "Logic",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "PHL 206",
+    "title": "Ethics",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "SPA 101",
+    "title": "Elementary Spanish I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "SPA 102",
+    "title": "Elementary Spanish II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "SPA 201",
+    "title": "Intermediate Spanish I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "SPA 202",
+    "title": "Intermediate Spanish II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Humanities"
+  },
+  {
+    "courseNo": "HIS 101E",
+    "title": "World History I Enriched",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "History"
+  },
+  {
+    "courseNo": "HIS 101H",
+    "title": "World History I Honors",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "History"
+  },
+  {
+    "courseNo": "HIS 102H",
+    "title": "World History II Honors",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "History"
+  },
+  {
+    "courseNo": "HIS 201",
+    "title": "American History I",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "History"
+  },
+  {
+    "courseNo": "HIS 202",
+    "title": "American History II",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "History"
+  },
+  {
+    "courseNo": "ECO 200",
+    "title": "Basic Economics",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Economics"
+  },
+  {
+    "courseNo": "ECO 231",
+    "title": "Principles of Macroeconomics",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Economics"
+  },
+  {
+    "courseNo": "GEO 213",
+    "title": "Principles of Geography",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Social/Behavioral Science"
+  },
+  {
+    "courseNo": "GEO 214",
+    "title": "World Regional Geography",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Social/Behavioral Science"
+  },
+  {
+    "courseNo": "PSC 201",
+    "title": "Introduction to Political Science",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Social/Behavioral Science"
+  },
+  {
+    "courseNo": "SOC 210",
+    "title": "Social Problems",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Social/Behavioral Science"
+  },
+  {
+    "courseNo": "SOC 212",
+    "title": "Marriage and the Family",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Social/Behavioral Science"
+  },
+  {
+    "courseNo": "UPL 103",
+    "title": "Community and You",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Social/Behavioral Science"
+  },
+  {
+    "courseNo": "PSY 201",
+    "title": "General Psychology",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Social/Behavioral Science"
+  },
+  {
+    "courseNo": "PSY 211",
+    "title": "Child Growth & Development",
+    "creditHour": 3,
+    "minGrade": null,
+    "category": "genEd",
+    "genEdCategory": "Social/Behavioral Science"
   }
 ]

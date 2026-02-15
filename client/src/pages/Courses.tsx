@@ -127,6 +127,32 @@ const Courses: React.FC = () => {
         console.error("Error fetching elective courses:", error);
       }
 
+      // Fetch GenEd courses for all categories
+      const genEdCategories = [
+        "PED/MSC/HED",
+        "Fine Arts",
+        "Humanities",
+        "Lit Sequence",
+        "History",
+        "Economics",
+        "Humanities/Fine Arts",
+        "Social/Behavioral Science"
+      ];
+
+      await Promise.all(
+        genEdCategories.map(async (category) => {
+          try {
+            const response = await fetch(`${API_BASE_URL}/courses/gened/${encodeURIComponent(category)}`);
+            const data = await response.json();
+            data.courses.forEach((course: CourseDetails) => {
+              coursesMap.set(course.courseNo, course);
+            });
+          } catch (error) {
+            console.error(`Error fetching GenEd courses for ${category}:`, error);
+          }
+        })
+      );
+
       setAllCourses(coursesMap);
     };
 

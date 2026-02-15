@@ -1,42 +1,118 @@
 {
   "PED/MSC/HED": {
     "description": "Physical Education / Military Science / Health Education",
-    "courses": ["HED 101"],
-    "note": "Add more PED, MSC, or HED courses here in the future"
+    "courses": [
+      "HED 101",
+      "PED 102",
+      "PED 107",
+      "PED 111",
+      "PED 114",
+      "PED 132",
+      "PED 133",
+      "PED 137",
+      "MSC 101"
+    ],
+    "note": "Area V requirement: 2 hours minimum from Health, Physical Education, or Military Science"
   },
   "Fine Arts": {
-    "description": "Fine Arts courses",
-    "courses": ["ART 101"],
-    "note": "Add more Fine Arts courses (ART, MUS, etc.) here in the future"
+    "description": "Fine Arts courses (performance courses excluded)",
+    "courses": [
+      "ART 101",
+      "ART 220",
+      "ART 221",
+      "MUS 101",
+      "COMM 101",
+      "UPL 102"
+    ],
+    "note": "Area II requirement: Minimum 3 hours in Fine Arts"
   },
   "Humanities": {
-    "description": "Humanities courses",
-    "courses": ["HIS 101"],
-    "note": "Add more Humanities courses (HIS, PHL, REL, etc.) here in the future"
+    "description": "Humanities courses including philosophy, religious studies, and foreign languages",
+    "courses": [
+      "CHN 101",
+      "CHN 102",
+      "CHN 201",
+      "CHN 202",
+      "ENG 205",
+      "ENG 205H",
+      "FRE 101",
+      "FRE 102",
+      "FRE 201",
+      "FRE 202",
+      "PHL 201",
+      "PHL 203",
+      "PHL 206",
+      "SPA 101",
+      "SPA 102",
+      "SPA 201",
+      "SPA 202"
+    ],
+    "note": "Area II: Part of 12 hour requirement in Humanities and Fine Arts"
   },
   "Lit Sequence": {
-    "description": "Literature Sequence courses",
-    "courses": ["ENG 201", "ENG 202"],
-    "note": "Add more Literature courses here in the future"
+    "description": "Literature Sequence courses (also counts as Humanities)",
+    "courses": [
+      "ENG 201",
+      "ENG 202",
+      "ENG 203",
+      "ENG 203H",
+      "ENG 204",
+      "ENG 204H",
+      "ENG 207",
+      "ENG 208"
+    ],
+    "note": "Area II: Minimum 3 hours in Literature. Must complete 6-hour sequence in either Literature or History"
   },
   "History": {
-    "description": "History courses",
-    "courses": ["HIS 102"],
-    "note": "Add more History courses here in the future"
+    "description": "History courses (also counts as Social Science)",
+    "courses": [
+      "HIS 101",
+      "HIS 101E",
+      "HIS 101H",
+      "HIS 102",
+      "HIS 102H",
+      "HIS 201",
+      "HIS 202"
+    ],
+    "note": "Area IV: Minimum 3 hours in History. Must complete 6-hour sequence in either Literature or History"
   },
   "Economics": {
-    "description": "Economics courses",
-    "courses": ["ECO 230"],
-    "note": "Add more Economics courses here in the future"
+    "description": "Economics courses (also counts as Social Science)",
+    "courses": [
+      "ECO 200",
+      "ECO 230",
+      "ECO 231"
+    ],
+    "note": "Area IV: Part of 12 hour requirement in History, Social, and Behavioral Sciences"
   },
   "Humanities/Fine Arts": {
-    "description": "Humanities or Fine Arts (combined category)",
-    "courses": ["PHL 201"],
-    "note": "Add more Humanities or Fine Arts courses here in the future"
+    "description": "Humanities or Fine Arts (combined category for flexibility)",
+    "courses": [
+      "PHL 201",
+      "PHL 203",
+      "PHL 206",
+      "ART 101",
+      "ART 220",
+      "ART 221",
+      "MUS 101",
+      "COMM 101",
+      "UPL 102"
+    ],
+    "note": "Area II: Remaining 6 hours can be from Humanities and/or Fine Arts"
   },
   "Social/Behavioral Science": {
-    "description": "Social or Behavioral Science courses",
-    "courses": ["SOC 201"],
-    "note": "Add more Social/Behavioral Science courses (SOC, PSY, POL, etc.) here in the future"
+    "description": "Social or Behavioral Science courses including sociology, psychology, political science, and geography",
+    "courses": [
+      "GEO 213",
+      "GEO 214",
+      "PSC 201",
+      "SOC 201",
+      "SOC 210",
+      "SOC 212",
+      "UPL 103",
+      "PSY 201",
+      "PSY 211"
+    ],
+    "note": "Area IV: Minimum 9 hours from Social and Behavioral Sciences"
   }
 }
