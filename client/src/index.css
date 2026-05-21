@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -42,6 +43,8 @@
 }
 
 :root {
+  --font-display: "Source Serif 4", serif;
+  --font-ui: "Space Grotesk", sans-serif;
   --black-rose-50: #fcf3f7;
   --black-rose-100: #fae9f1;
   --black-rose-200: #f7d3e3;
@@ -144,10 +147,18 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-ui);
   }
 }
 
 @layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-ui {
+    font-family: var(--font-ui);
+  }
   /* AAMU Maroon Colors */
   .bg-aamu-maroon {
     background-color: var(--aamu-maroon);
