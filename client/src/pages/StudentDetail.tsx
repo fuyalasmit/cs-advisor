@@ -76,8 +76,8 @@ const StudentDetail: React.FC = () => {
     const [showAddModal, setShowAddModal] = useState(false);
     const [availableCourses, setAvailableCourses] = useState<AvailableCourse[]>([]);
     const [searchQuery, setSearchQuery] = useState("");
-    const [selectedCourse, setSelectedCourse] = useState<string>("");
-    const [selectedGrade, setSelectedGrade] = useState<string>("A");
+    const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
+    const [selectedGrades, setSelectedGrades] = useState<Record<string, string>>({});
     const [addLoading, setAddLoading] = useState(false);
     const [addError, setAddError] = useState("");
 
@@ -216,26 +216,31 @@ const StudentDetail: React.FC = () => {
     const openAddModal = () => {
         setShowAddModal(true);
         setSearchQuery("");
-        setSelectedCourse("");
-        setSelectedGrade("A");
+        setSelectedCourses([]);
+        setSelectedGrades({});
         setAddError("");
         fetchAvailableCourses();
     };
 
     const closeAddModal = () => {
         setShowAddModal(false);
-        setSelectedCourse("");
+        setSelectedCourses([]);
+        setSelectedGrades({});
         setAddError("");
     };
 
     const handleAddCourse = async () => {
-        if (!selectedCourse || !id) return;
+        if (!selectedCourses.length || !id) return;
 
         setAddLoading(true);
         setAddError("");
 
         try {
-            await api.students.addCompleted(parseInt(id), [{ courseNo: selectedCourse, grade: selectedGrade }]);
+            const payload = selectedCourses.map((courseNo) => ({
+                courseNo,
+                grade: selectedGrades[courseNo] || "A",
+            }));
+            await api.students.addCompleted(parseInt(id), payload);
             closeAddModal();
             fetchData();
         } catch (err) {
@@ -243,6 +248,25 @@ const StudentDetail: React.FC = () => {
         } finally {
             setAddLoading(false);
         }
+    };
+
+    const toggleSelectedCourse = (courseNo: string) => {
+        setSelectedCourses((prev) => {
+            if (prev.includes(courseNo)) {
+                const next = prev.filter((item) => item !== courseNo);
+                setSelectedGrades((grades) => {
+                    const { [courseNo]: _, ...rest } = grades;
+                    return rest;
+                });
+                return next;
+            }
+
+            if (!selectedGrades[courseNo]) {
+                setSelectedGrades((grades) => ({ ...grades, [courseNo]: "A" }));
+            }
+
+            return [...prev, courseNo];
+        });
     };
 
     const handleRemoveCourse = async (courseNo: string) => {
@@ -538,7 +562,14 @@ const StudentDetail: React.FC = () => {
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-hidden flex flex-col">
                         <div className="p-6 border-b border-gray-200">
-                            <h2 className="text-2xl font-bold text-gray-900">Add Completed Course</h2>
+                            <div className="flex items-center gap-3">
+                                <h2 className="text-2xl font-bold text-gray-900">Add Completed Courses</h2>
+                                {selectedCourses.length > 0 && (
+                                    <span className="inline-flex items-center rounded-full bg-aamu-maroon/10 px-2.5 py-0.5 text-xs font-semibold text-aamu-maroon">
+                                        {selectedCourses.length} selected
+                                    </span>
+                                )}
+                            </div>
                         </div>
 
                         <div className="p-6 flex-1 overflow-y-auto">
@@ -560,49 +591,58 @@ const StudentDetail: React.FC = () => {
                             </div>
 
                             <div className="mb-4">
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Select Course</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Select Courses</label>
                                 <div className="max-h-48 overflow-y-auto border border-gray-200 rounded-lg">
                                     {filteredCourses.length === 0 ? (
                                         <p className="p-3 text-gray-500 text-center text-sm">No courses available</p>
                                     ) : (
-                                        filteredCourses.slice(0, 50).map((course) => (
-                                            <div
-                                                key={course.courseNo}
-                                                onClick={() => setSelectedCourse(course.courseNo)}
-                                                className={`p-3 cursor-pointer border-b border-gray-100 last:border-b-0 flex items-center justify-between ${
-                                                    selectedCourse === course.courseNo
-                                                        ? "bg-aamu-maroon/10 border-l-4 border-l-aamu-maroon"
-                                                        : "hover:bg-gray-50"
-                                                }`}>
-                                                <div>
-                                                    <p className="font-medium text-gray-900 text-sm">
-                                                        {course.courseNo} - {course.title}
-                                                    </p>
-                                                    <p className="text-xs text-gray-600">
-                                                        {course.creditHour} credits • {course.category}
-                                                    </p>
+                                        filteredCourses.slice(0, 50).map((course) => {
+                                            const isSelected = selectedCourses.includes(course.courseNo);
+                                            return (
+                                                <div
+                                                    key={course.courseNo}
+                                                    onClick={() => toggleSelectedCourse(course.courseNo)}
+                                                    className={`p-3 cursor-pointer border-b border-gray-100 last:border-b-0 flex items-center justify-between ${
+                                                        isSelected
+                                                            ? "bg-aamu-maroon/10 border-l-4 border-l-aamu-maroon"
+                                                            : "hover:bg-gray-50"
+                                                    }`}>
+                                                    <div className="pr-3">
+                                                        <p className="font-medium text-gray-900 text-sm">
+                                                            {course.courseNo} - {course.title}
+                                                        </p>
+                                                        <p className="text-xs text-gray-600">
+                                                            {course.creditHour} credits • {course.category}
+                                                        </p>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        {isSelected && (
+                                                            <select
+                                                                value={selectedGrades[course.courseNo] || "A"}
+                                                                onChange={(e) =>
+                                                                    setSelectedGrades((grades) => ({
+                                                                        ...grades,
+                                                                        [course.courseNo]: e.target.value,
+                                                                    }))
+                                                                }
+                                                                onClick={(e) => e.stopPropagation()}
+                                                                className="px-2 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-aamu-maroon/20 focus:border-aamu-maroon">
+                                                                <option value="A">A</option>
+                                                                <option value="B">B</option>
+                                                                <option value="C">C</option>
+                                                                <option value="D">D</option>
+                                                                <option value="F">F</option>
+                                                            </select>
+                                                        )}
+                                                        {isSelected && (
+                                                            <span className="text-aamu-maroon font-bold text-lg">✓</span>
+                                                        )}
+                                                    </div>
                                                 </div>
-                                                {selectedCourse === course.courseNo && (
-                                                    <span className="text-aamu-maroon font-bold text-lg">✓</span>
-                                                )}
-                                            </div>
-                                        ))
+                                            );
+                                        })
                                     )}
                                 </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Grade</label>
-                                <select
-                                    value={selectedGrade}
-                                    onChange={(e) => setSelectedGrade(e.target.value)}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-aamu-maroon/20 focus:border-aamu-maroon">
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="F">F</option>
-                                </select>
                             </div>
                         </div>
 
@@ -615,9 +655,9 @@ const StudentDetail: React.FC = () => {
                             </button>
                             <button
                                 onClick={handleAddCourse}
-                                disabled={!selectedCourse || addLoading}
+                                disabled={!selectedCourses.length || addLoading}
                                 className="flex-1 px-4 py-2 bg-aamu-maroon text-white rounded-lg hover:bg-black-rose-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                                {addLoading ? "Adding..." : "Add Course"}
+                                {addLoading ? "Adding..." : "Add Courses"}
                             </button>
                         </div>
                     </div>
