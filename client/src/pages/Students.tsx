@@ -12,6 +12,7 @@ interface Student {
   currentSem: string;
   currentGpa: number | null;
   concentration: string;
+  isOnHold: boolean;
 }
 
 interface StudentFormData {
@@ -184,14 +185,21 @@ const Students: React.FC = () => {
                   <div
                     key={student.id}
                     onClick={() => navigate(`/students/${student.id}`)}
-                    className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md hover:border-aamu-maroon/50 transition-all cursor-pointer">
+                    className={`bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-all cursor-pointer ${student.isOnHold ? "border-red-300 hover:border-red-400" : "border-gray-200 hover:border-aamu-maroon/50"}`}>
                     <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-semibold text-gray-900">{student.name}</h3>
+                      <div className="flex-1 min-w-0 pr-2">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <h3 className="text-xl font-semibold text-gray-900">{student.name}</h3>
+                          {student.isOnHold && (
+                            <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-bold rounded-full border border-red-300 uppercase tracking-wide">
+                              Hold
+                            </span>
+                          )}
+                        </div>
                         <p className="text-sm text-gray-500">{student.email}</p>
                       </div>
                       {student.currentGpa !== null && (
-                        <div className="bg-aamu-maroon/10 text-aamu-maroon px-3 py-1 rounded-full text-sm font-semibold">
+                        <div className="bg-aamu-maroon/10 text-aamu-maroon px-3 py-1 rounded-full text-sm font-semibold shrink-0">
                           {student.currentGpa.toFixed(2)} GPA
                         </div>
                       )}

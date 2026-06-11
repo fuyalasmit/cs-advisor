@@ -20,6 +20,8 @@ interface Student {
     currentSem: string;
     currentGpa: number | null;
     concentration: string;
+    isOnHold: boolean;
+    holdReason: string | null;
     completedCourses: CompletedCourse[];
     totalCredits: number;
 }
@@ -96,6 +98,12 @@ const StudentDetail: React.FC = () => {
     });
     const [editLoading, setEditLoading] = useState(false);
     const [editError, setEditError] = useState("");
+
+    // Hold state
+    const [showHoldModal, setShowHoldModal] = useState(false);
+    const [holdReason, setHoldReason] = useState("");
+    const [holdLoading, setHoldLoading] = useState(false);
+    const [holdError, setHoldError] = useState("");
 
     const fetchData = async () => {
         if (!id) return;
@@ -335,6 +343,46 @@ const StudentDetail: React.FC = () => {
         }
     };
 
+    const openHoldModal = () => {
+        setHoldReason(student?.holdReason || "");
+        setHoldError("");
+        setShowHoldModal(true);
+    };
+
+    const closeHoldModal = () => {
+        setShowHoldModal(false);
+        setHoldError("");
+    };
+
+    const handlePlaceHold = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!id) return;
+        setHoldLoading(true);
+        setHoldError("");
+        try {
+            await api.students.setHold(parseInt(id), true, holdReason || null);
+            closeHoldModal();
+            fetchData();
+        } catch (err) {
+            setHoldError(err instanceof Error ? err.message : "Failed to place hold");
+        } finally {
+            setHoldLoading(false);
+        }
+    };
+
+    const handleRemoveHold = async () => {
+        if (!id) return;
+        setHoldLoading(true);
+        try {
+            await api.students.setHold(parseInt(id), false, null);
+            fetchData();
+        } catch (err) {
+            setHoldError(err instanceof Error ? err.message : "Failed to remove hold");
+        } finally {
+            setHoldLoading(false);
+        }
+    };
+
     const filteredCourses = availableCourses.filter(
         (course) =>
             !student?.completedCourses.find((c) => c.courseNo === course.courseNo) &&
@@ -383,17 +431,46 @@ const StudentDetail: React.FC = () => {
                     ← Back to Students
                 </button>
 
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                <div className={`bg-white rounded-lg shadow-sm border p-6 mb-6 ${student.isOnHold ? "border-red-300" : "border-gray-200"}`}>
                     <div className="flex items-start justify-between mb-6">
                         <div>
-                            <h1 className="text-3xl font-bold text-gray-900 mb-2">{student.name}</h1>
+                            <div className="flex items-center gap-3 mb-2">
+                                <h1 className="text-3xl font-bold text-gray-900">{student.name}</h1>
+                                {student.isOnHold && (
+                                    <span className="px-2.5 py-0.5 bg-red-100 text-red-700 text-sm font-bold rounded-full border border-red-300 uppercase tracking-wide">
+                                        Hold
+                                    </span>
+                                )}
+                            </div>
                             <p className="text-gray-600">{student.email}</p>
+                            {student.isOnHold && student.holdReason && (
+                                <p className="mt-2 text-sm text-red-600 font-medium">
+                                    Reason: {student.holdReason}
+                                </p>
+                            )}
                         </div>
-                        <button
-                            onClick={openEditStudentModal}
-                            className="px-6 py-2 bg-aamu-maroon text-white rounded-lg font-semibold hover:bg-black-rose-800 transition-colors">
-                            Edit Student
-                        </button>
+                        <div className="flex items-center gap-3">
+                            {student.isOnHold ? (
+                                <button
+                                    onClick={handleRemoveHold}
+                                    disabled={holdLoading}
+                                    className="px-4 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors disabled:opacity-50">
+                                    {holdLoading ? "Removing..." : "Remove Hold"}
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={openHoldModal}
+                                    disabled={holdLoading}
+                                    className="px-4 py-2 border border-red-300 text-red-600 rounded-lg font-semibold hover:bg-red-50 transition-colors disabled:opacity-50">
+                                    Place Hold
+                                </button>
+                            )}
+                            <button
+                                onClick={openEditStudentModal}
+                                className="px-6 py-2 bg-aamu-maroon text-white rounded-lg font-semibold hover:bg-black-rose-800 transition-colors">
+                                Edit Student
+                            </button>
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -660,6 +737,53 @@ const StudentDetail: React.FC = () => {
                                 {addLoading ? "Adding..." : "Add Courses"}
                             </button>
                         </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Place Hold Modal */}
+            {showHoldModal && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-lg shadow-xl max-w-md w-full">
+                        <div className="p-6 border-b border-gray-200">
+                            <h2 className="text-xl font-semibold text-gray-900">Place Hold on {student.name}</h2>
+                        </div>
+                        <form onSubmit={handlePlaceHold}>
+                            <div className="p-6 space-y-4">
+                                {holdError && (
+                                    <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                                        {holdError}
+                                    </div>
+                                )}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                        Reason <span className="text-gray-400 font-normal">(optional)</span>
+                                    </label>
+                                    <textarea
+                                        value={holdReason}
+                                        onChange={(e) => setHoldReason(e.target.value)}
+                                        rows={3}
+                                        maxLength={500}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-200 focus:border-red-400 resize-none"
+                                        placeholder="e.g. Fee not cleared, Missing documents..."
+                                    />
+                                </div>
+                            </div>
+                            <div className="p-6 border-t border-gray-200 flex gap-3">
+                                <button
+                                    type="button"
+                                    onClick={closeHoldModal}
+                                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    disabled={holdLoading}
+                                    className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50">
+                                    {holdLoading ? "Placing Hold..." : "Place Hold"}
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             )}

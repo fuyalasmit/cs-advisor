@@ -30,6 +30,7 @@ router.get("/", async (req, res) => {
         currentSem: true,
         currentGpa: true,
         concentration: true,
+        isOnHold: true,
       },
       orderBy: {
         name: "asc",
@@ -119,6 +120,7 @@ router.post("/", async (req, res) => {
         currentSem: true,
         currentGpa: true,
         concentration: true,
+        isOnHold: true,
       },
     });
 
@@ -196,6 +198,8 @@ router.get("/:id", async (req, res) => {
         currentSem: student.currentSem,
         currentGpa: student.currentGpa,
         concentration: student.concentration,
+        isOnHold: student.isOnHold,
+        holdReason: student.holdReason,
         completedCourses: student.completedCourses.map((cc: any) => ({
           courseNo: cc.course.courseNo,
           title: cc.course.title,
@@ -239,6 +243,8 @@ router.patch("/:id", async (req, res) => {
       currentSem: z.enum(["first", "second"]).optional(),
       currentGpa: z.number().min(0).max(4.0).optional().nullable(),
       concentration: z.string().optional(),
+      isOnHold: z.boolean().optional(),
+      holdReason: z.string().max(500).optional().nullable(),
     });
 
     const parsedData = updateSchema.safeParse(req.body);
@@ -290,6 +296,8 @@ router.patch("/:id", async (req, res) => {
     if (parsedData.data.currentSem !== undefined) updateData.currentSem = parsedData.data.currentSem;
     if (parsedData.data.currentGpa !== undefined) updateData.currentGpa = parsedData.data.currentGpa;
     if (parsedData.data.concentration !== undefined) updateData.concentration = parsedData.data.concentration;
+    if (parsedData.data.isOnHold !== undefined) updateData.isOnHold = parsedData.data.isOnHold;
+    if (parsedData.data.holdReason !== undefined) updateData.holdReason = parsedData.data.holdReason;
 
     const updatedStudent = await prisma.student.update({
       where: {
@@ -305,6 +313,8 @@ router.patch("/:id", async (req, res) => {
         currentSem: true,
         currentGpa: true,
         concentration: true,
+        isOnHold: true,
+        holdReason: true,
       },
     });
 

@@ -30,6 +30,8 @@ model Student {
   currentSem       String
   currentGpa       Float?
   concentration    String            @default("GCS")
+  isOnHold         Boolean           @default(false)
+  holdReason       String?
   teacherId        Int
   teacher          Teacher           @relation(fields: [teacherId], references: [id], onDelete: Restrict)
   completedCourses CompletedCourse[]

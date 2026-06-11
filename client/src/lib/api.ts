@@ -147,6 +147,18 @@ export const api = {
       }
       return response.json();
     },
+
+    setHold: async (id: number, isOnHold: boolean, holdReason?: string | null) => {
+      const response = await fetchWithCredentials(`${API_BASE_URL}/students/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify({ isOnHold, holdReason: holdReason ?? null }),
+      });
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to update hold status");
+      }
+      return response.json();
+    },
   },
 
   suggestions: {

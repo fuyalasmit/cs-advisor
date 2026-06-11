@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc -b && node ./dist/src/index.js",
-    "seed": "tsc -b && node ./dist/prisma/seed.js"
+    "dev": "tsc -b --force && node ./dist/src/index.js",
+    "seed": "tsc -b --force && node ./dist/prisma/seed.js"
   },
   "prisma": {
     "seed": "npm run seed"
