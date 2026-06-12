@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { api, API_BASE_URL } from "../lib/api";
+import StudentProgressGraph from "../components/StudentProgressGraph";
 
 interface CompletedCourse {
     courseNo: string;
@@ -105,6 +106,11 @@ const StudentDetail: React.FC = () => {
     const [holdLoading, setHoldLoading] = useState(false);
     const [holdError, setHoldError] = useState("");
 
+    // Progress graph state
+    const [completedViewMode, setCompletedViewMode] = useState<"list" | "graph">("list");
+    const [graphData, setGraphData] = useState<{ nodes: { courseNo: string; title: string; creditHour: number; category: string; grade: string }[]; edges: { source: string; target: string }[] } | null>(null);
+    const [graphLoading, setGraphLoading] = useState(false);
+
     const fetchData = async () => {
         if (!id) return;
 
@@ -117,10 +123,25 @@ const StudentDetail: React.FC = () => {
 
             setStudent(studentData.student);
             setSuggestions(suggestionsData);
+            setGraphData(null); // invalidate graph so it re-fetches on next toggle
         } catch (err) {
             setError(err instanceof Error ? err.message : "Failed to load student data");
         } finally {
             setLoading(false);
+        }
+    };
+
+    const switchToGraph = async () => {
+        setCompletedViewMode("graph");
+        if (graphData !== null || !id) return;
+        try {
+            setGraphLoading(true);
+            const data = await api.students.getCompletedGraph(parseInt(id));
+            setGraphData(data);
+        } catch (err) {
+            console.error("Failed to load progress graph:", err);
+        } finally {
+            setGraphLoading(false);
         }
     };
 
@@ -504,14 +525,48 @@ const StudentDetail: React.FC = () => {
                                     ({student.totalCredits} credits)
                                 </span>
                             </h2>
-                            <button
-                                onClick={openAddModal}
-                                className="px-4 py-2 bg-aamu-maroon text-white rounded-lg text-sm font-semibold hover:bg-black-rose-800 transition-colors">
-                                + Add Course
-                            </button>
+                            <div className="flex items-center gap-2">
+                                <div className="flex rounded-lg border border-gray-200 overflow-hidden">
+                                    <button
+                                        onClick={() => setCompletedViewMode("list")}
+                                        className={`px-3 py-1.5 text-xs font-medium transition-colors ${
+                                            completedViewMode === "list"
+                                                ? "bg-aamu-maroon text-white"
+                                                : "bg-white text-gray-600 hover:bg-gray-50"
+                                        }`}>
+                                        List
+                                    </button>
+                                    <button
+                                        onClick={switchToGraph}
+                                        className={`px-3 py-1.5 text-xs font-medium transition-colors border-l border-gray-200 ${
+                                            completedViewMode === "graph"
+                                                ? "bg-aamu-maroon text-white"
+                                                : "bg-white text-gray-600 hover:bg-gray-50"
+                                        }`}>
+                                        Graph
+                                    </button>
+                                </div>
+                                <button
+                                    onClick={openAddModal}
+                                    className="px-4 py-2 bg-aamu-maroon text-white rounded-lg text-sm font-semibold hover:bg-black-rose-800 transition-colors">
+                                    + Add Course
+                                </button>
+                            </div>
                         </div>
 
-                        {student.completedCourses.length === 0 ? (
+                        {completedViewMode === "graph" ? (
+                            graphLoading ? (
+                                <div className="flex items-center justify-center h-[450px] text-gray-400">
+                                    Loading graph...
+                                </div>
+                            ) : graphData ? (
+                                <StudentProgressGraph nodes={graphData.nodes} edges={graphData.edges} />
+                            ) : (
+                                <div className="flex items-center justify-center h-[450px] text-gray-400">
+                                    Failed to load graph
+                                </div>
+                            )
+                        ) : student.completedCourses.length === 0 ? (
                             <p className="text-gray-500 text-center py-8">No completed courses yet</p>
                         ) : (
                             <div className="space-y-2 max-h-96 overflow-y-auto">

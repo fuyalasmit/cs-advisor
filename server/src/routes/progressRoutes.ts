@@ -216,6 +216,63 @@ router.post("/:id/completed", async (req, res) => {
   }
 });
 
+router.get("/:id/completed-graph", async (req, res) => {
+  try {
+    const studentId = parseInt(req.params.id);
+    const teacherId = req.userId;
+
+    if (isNaN(studentId)) {
+      return res.status(400).json({ message: "Invalid student ID" });
+    }
+    if (!teacherId) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const student = await prisma.student.findFirst({
+      where: { id: studentId, teacherId },
+    });
+
+    if (!student) {
+      return res.status(404).json({ message: "Student not found" });
+    }
+
+    const completedCourses = await prisma.completedCourse.findMany({
+      where: { studentId },
+      include: {
+        course: {
+          select: { courseNo: true, title: true, creditHour: true, category: true },
+        },
+      },
+    });
+
+    const completedSet = new Set(completedCourses.map((cc) => cc.courseId));
+
+    const prereqs = await prisma.prerequisite.findMany({
+      where: {
+        courseId: { in: [...completedSet] },
+        preReqCourseId: { in: [...completedSet] },
+      },
+      select: { courseId: true, preReqCourseId: true },
+    });
+
+    res.json({
+      nodes: completedCourses.map((cc) => ({
+        courseNo: cc.courseId,
+        title: cc.course.title,
+        creditHour: cc.course.creditHour,
+        category: cc.course.category,
+        grade: cc.grade,
+      })),
+      edges: prereqs
+        .filter((p) => p.preReqCourseId != null)
+        .map((p) => ({ source: p.preReqCourseId!, target: p.courseId })),
+    });
+  } catch (error) {
+    console.error("Error fetching completed graph:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 router.delete("/:id/completed/:courseNo", async (req, res) => {
   try {
     const studentId = parseInt(req.params.id);

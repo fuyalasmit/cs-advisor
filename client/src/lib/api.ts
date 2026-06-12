@@ -148,6 +148,14 @@ export const api = {
       return response.json();
     },
 
+    getCompletedGraph: async (id: number) => {
+      const response = await fetchWithCredentials(`${API_BASE_URL}/students/${id}/completed-graph`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch progress graph");
+      }
+      return response.json();
+    },
+
     setHold: async (id: number, isOnHold: boolean, holdReason?: string | null) => {
       const response = await fetchWithCredentials(`${API_BASE_URL}/students/${id}`, {
         method: "PATCH",
