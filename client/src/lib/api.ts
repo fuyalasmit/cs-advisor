@@ -1,11 +1,16 @@
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api/v1";
 
 const fetchWithCredentials = async (url: string, options: RequestInit = {}) => {
+  const aiProvider = localStorage.getItem("ai_provider");
+  const aiApiKey   = localStorage.getItem("ai_api_key");
+
   return fetch(url, {
     ...options,
     credentials: "include",
     headers: {
       "Content-Type": "application/json",
+      ...(aiProvider ? { "x-ai-provider": aiProvider } : {}),
+      ...(aiApiKey   ? { "x-ai-api-key":  aiApiKey  } : {}),
       ...options.headers,
     },
   });
@@ -174,6 +179,39 @@ export const api = {
       const response = await fetchWithCredentials(`${API_BASE_URL}/students/${studentId}/suggestions`);
       if (!response.ok) {
         throw new Error("Failed to fetch suggestions");
+      }
+      return response.json();
+    },
+  },
+
+  risk: {
+    get: async (studentId: number, explain = false) => {
+      const url = `${API_BASE_URL}/students/${studentId}/risk${explain ? "?explain=true" : ""}`;
+      const response = await fetchWithCredentials(url);
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to fetch risk assessment");
+      }
+      return response.json();
+    },
+
+    getSummary: async () => {
+      const response = await fetchWithCredentials(`${API_BASE_URL}/students/risk-summary`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch risk summary");
+      }
+      return response.json();
+    },
+  },
+
+  career: {
+    get: async (studentId: number) => {
+      const response = await fetchWithCredentials(
+        `${API_BASE_URL}/students/${studentId}/career-insights`
+      );
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to generate career insights");
       }
       return response.json();
     },

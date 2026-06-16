@@ -15,6 +15,12 @@ interface Student {
   isOnHold: boolean;
 }
 
+interface RiskSummaryEntry {
+  id: number;
+  riskLevel: "low" | "medium" | "high";
+  topFlag: string | null;
+}
+
 interface StudentFormData {
   name: string;
   email: string;
@@ -35,6 +41,7 @@ const emptyFormData: StudentFormData = {
 
 const Students: React.FC = () => {
   const [students, setStudents] = useState<Student[]>([]);
+  const [riskMap, setRiskMap] = useState<Map<number, RiskSummaryEntry>>(new Map());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -58,8 +65,20 @@ const Students: React.FC = () => {
     }
   };
 
+  const fetchRiskSummary = async () => {
+    try {
+      const data = await api.risk.getSummary();
+      const map = new Map<number, RiskSummaryEntry>();
+      (data.riskSummaries as RiskSummaryEntry[]).forEach((r) => map.set(r.id, r));
+      setRiskMap(map);
+    } catch {
+      // Risk summary is supplementary — fail silently
+    }
+  };
+
   useEffect(() => {
     fetchStudents();
+    fetchRiskSummary();
   }, []);
 
   const openAddModal = () => {
@@ -195,6 +214,21 @@ const Students: React.FC = () => {
                               Hold
                             </span>
                           )}
+                          {(() => {
+                            const r = riskMap.get(student.id);
+                            if (!r || r.riskLevel === "low") return null;
+                            return (
+                              <span
+                                className={`px-2 py-0.5 text-xs font-semibold rounded-full border ${
+                                  r.riskLevel === "high"
+                                    ? "bg-red-50 text-red-600 border-red-200"
+                                    : "bg-yellow-50 text-yellow-700 border-yellow-200"
+                                }`}
+                                title={r.topFlag ?? undefined}>
+                                {r.riskLevel === "high" ? "High Risk" : "At Risk"}
+                              </span>
+                            );
+                          })()}
                         </div>
                         <p className="text-sm text-gray-500">{student.email}</p>
                       </div>

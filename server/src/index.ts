@@ -8,6 +8,8 @@ import courseRoute from "../src/routes/courseRoutes.js";
 import studentRoute from "../src/routes/studentRoutes.js";
 import progressRoute from "../src/routes/progressRoutes.js";
 import suggestionRoute from "../src/routes/suggestionRoutes.js";
+import riskRoute from "../src/routes/riskRoutes.js";
+import careerRoute from "../src/routes/careerRoutes.js";
 
 dotenv.config();
 const FE_URL = process.env.FE_URL;
@@ -32,9 +34,12 @@ app.get("/api/v1/health", (req, res) => {
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/courses", courseRoute);
+// riskRoute before studentRoute so /risk-summary doesn't match /:id
+app.use("/api/v1/students", riskRoute);
 app.use("/api/v1/students", studentRoute);
 app.use("/api/v1/students", progressRoute);
 app.use("/api/v1/students", suggestionRoute);
+app.use("/api/v1/students", careerRoute);
 
 app.listen(PORT, () => {
   console.log("Server listening on port", PORT);

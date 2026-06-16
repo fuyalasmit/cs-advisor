@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { api, API_BASE_URL } from "../lib/api";
 import StudentProgressGraph from "../components/StudentProgressGraph";
+import RiskAssessment from "../components/RiskAssessment";
+import CareerInsights from "../components/CareerInsights";
 
 interface CompletedCourse {
     courseNo: string;
@@ -515,6 +517,10 @@ const StudentDetail: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
+                <RiskAssessment studentId={student.id} />
+
+                <CareerInsights studentId={student.id} />
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
